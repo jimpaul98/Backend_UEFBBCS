@@ -5,9 +5,10 @@ const router = express.Router();
 const estudianteController = require('../controllers/estudianteController');
 const profesorController = require('../controllers/profesorController');
 const materiaController = require('../controllers/materiaController');
-const claseController = require('../controllers/claseController');
+const gradoController = require('../controllers/gradoController');
 const asistenciaController = require('../controllers/asistenciaController');
 const padreController = require('../controllers/padreController');
+const anioLectivoController = require('../controllers/anioLectivoController');
 
 // Controlador de Usuarios y Autenticación
 const usuarioController = require('../controllers/usuarioController');
@@ -42,12 +43,22 @@ router.post('/materias', materiaController.registrarMateria);  // Registrar mate
 router.put('/materias/:id', materiaController.actualizarMateria);  // Actualizar materia
 router.delete('/materias/:id', materiaController.eliminarMateria);  // Eliminar materia
 
-// Rutas de Clases
-router.get('/clases', claseController.obtenerClases);  // Listar todas las clases
-router.get('/clases/:id', claseController.obtenerClase);  // Listar clase por ID
-router.post('/clases', claseController.registrarClase);  // Registrar clase
-router.put('/clases/:id', claseController.actualizarClase);  // Actualizar clase
-router.delete('/clases/:id', claseController.eliminarClase);  // Eliminar clase
+// Rutas de Grados
+router.get('/grados', gradoController.obtenerGrados);// Obtener todos los grados
+router.get('/grados/:id', gradoController.obtenerGrado);// Obtener un grado por ID
+router.post('/grados', gradoController.registrarGrado);// Registrar un grado
+router.put('/grados/:id', gradoController.actualizarGrado);// Actualizar un grado
+router.delete('/grados/:id', gradoController.eliminarGrado);// Eliminar un grado
+
+
+// años lectivos
+router.get('/anio-lectivos', anioLectivoController.obtenerAnioLectivos);// Obtener todos los años lectivos
+router.get('/anio-lectivos/:id', anioLectivoController.obtenerAnioLectivo);// Obtener un año lectivo por ID
+router.post('/anio-lectivos', anioLectivoController.registrarAnioLectivo);// Registrar un nuevo año lectivo
+router.put('/anio-lectivos/:id', anioLectivoController.actualizarAnioLectivo);// Actualizar un año lectivo
+router.delete('/anio-lectivos/:id', anioLectivoController.eliminarAnioLectivo);// Eliminar un año lectivo
+
+
 
 // Rutas de Asistencia
 router.post('/asistencia', asistenciaController.registrarAsistencia);  // Registrar asistencia
